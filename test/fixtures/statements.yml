@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  politician_id: 1
+  event: MyString
+  datetime: 2018-07-17 09:21:37
+  content: MyText
+
+two:
+  politician_id: 1
+  event: MyString
+  datetime: 2018-07-17 09:21:37
+  content: MyText
