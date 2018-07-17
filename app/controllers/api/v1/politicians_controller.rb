@@ -1,7 +1,7 @@
-class PoliticiansController < ApplicationController
+class Api::V1::PoliticiansController < ApplicationController
 
     def index
-        render json: Politician.includes(:hobbies), include: ['hobbies']
+        render json: Politician.includes(:statements), include: ['statements']
     end
 
 end
