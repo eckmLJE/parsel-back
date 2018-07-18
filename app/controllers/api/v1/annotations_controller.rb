@@ -4,4 +4,15 @@ class Api::V1::AnnotationsController < ApplicationController
         render json: Annotation.all
     end
 
+    def create
+        annotation = Annotation.create(annotation_params)
+        render json: annotation
+    end
+
+    private
+
+    def annotation_params
+        params.require(:annotation).permit(:id, :content, :start, :end, :statement_id)
+    end
+
 end

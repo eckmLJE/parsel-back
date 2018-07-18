@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2018_07_17_132203) do
   create_table "annotations", force: :cascade do |t|
     t.integer "statement_id"
     t.text "content"
+    t.integer "start"
+    t.integer "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
