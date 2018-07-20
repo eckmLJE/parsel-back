@@ -15,8 +15,7 @@ ActiveRecord::Schema.define(version: 2018_07_17_132203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "annotations", id: false, force: :cascade do |t|
-    t.integer "id", default: 1001
+  create_table "annotations", force: :cascade do |t|
     t.integer "statement_id"
     t.text "content"
     t.integer "start"

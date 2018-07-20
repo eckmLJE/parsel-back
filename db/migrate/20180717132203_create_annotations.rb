@@ -1,7 +1,6 @@
 class CreateAnnotations < ActiveRecord::Migration[5.2]
   def change
-    create_table :annotations, id: false do |t|
-      t.integer :id, :options => 'PRIMARY KEY', :default => 1001
+    create_table :annotations do |t|
       t.integer :statement_id
       t.text :content
       t.integer :start
