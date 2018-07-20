@@ -5,6 +5,7 @@ class CreateStatements < ActiveRecord::Migration[5.2]
       t.string :event
       t.datetime :datetime
       t.text :content
+      t.string :title
 
       t.timestamps
     end

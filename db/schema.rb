@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 2018_07_17_132203) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "annotations", force: :cascade do |t|
+  create_table "annotations", id: false, force: :cascade do |t|
+    t.integer "id", default: 1001
     t.integer "statement_id"
     t.text "content"
     t.integer "start"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_07_17_132203) do
     t.string "event"
     t.datetime "datetime"
     t.text "content"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
