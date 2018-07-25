@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_17_132203) do
+ActiveRecord::Schema.define(version: 2018_07_25_153312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2018_07_17_132203) do
     t.text "content"
     t.integer "start"
     t.integer "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "annotations_tags", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "annotation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,6 +44,12 @@ ActiveRecord::Schema.define(version: 2018_07_17_132203) do
     t.datetime "datetime"
     t.text "content"
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

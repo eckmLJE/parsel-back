@@ -22,3 +22,9 @@ nochoicecomment1 = Annotation.create(statement: nochoice, start: 10, end: 30, co
 nochoicecomment2 = Annotation.create(statement: nochoice, start: 100, end: 150, content: "Another annotation")
 nochoicecomment3 = Annotation.create(statement: nochoice, start: 125, end: 175, content: "Something something")
 nochoicecomment4 = Annotation.create(statement: nochoice, start: 550, end: 600, content: "yep")
+
+treasontag = Tag.create(tag_type: "treason")
+facttag = Tag.create(tag_type: "fact_check")
+inspiretag = Tag.create(tag_type: "inspire")
+
+disgracecomment2.tags << treasontag
