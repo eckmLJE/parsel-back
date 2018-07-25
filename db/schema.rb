@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_153312) do
+ActiveRecord::Schema.define(version: 2018_07_25_201749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "annotations", force: :cascade do |t|
     t.integer "statement_id"
+    t.integer "user_id"
     t.text "content"
     t.integer "start"
     t.integer "end"
@@ -50,6 +51,14 @@ ActiveRecord::Schema.define(version: 2018_07_25_153312) do
 
   create_table "tags", force: :cascade do |t|
     t.string "tag_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

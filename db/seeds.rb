@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+eckm = User.create(username: "eckm", password: "eckm", points: 500)
+fel = User.create(username: "fel", password: "fel", points: 100)
+jim = User.create(username: "jim", password: "jim", points: 5)
+
 
 mccain = Politician.create(party: "GOP", name: "John McCain")
 menendez = Politician.create(party: "DNC", name: "Bob Menendez")
@@ -13,18 +19,30 @@ disgraceful = Statement.create(politician: mccain, event: "press release", datet
 nochoice = Statement.create(politician: menendez, event: "floor speech", datetime:"2018-06-19", title: "Menendez Announces New Comprehensive Sanctions Legislation Against Russia", content: "I don’t see another way forward other than further Congressional action to call out the Administration’s willful paralysis to Putin’s abhorrent behavior. Our efforts to date have been transformative, but just as the Administration has been prepared to find ways that allow them to circumvent the law and avoid implementing mandatory provisions of CAATSA, we must be equally prepared to adjust and adapt by closing those loopholes. That is why I will soon introduce comprehensive legislation to increase pressure on this Administration to actually implement the law and increase pressure on Russia for its aggression against the U.S. and our allies.")
 backtowork = Statement.create(politician: mccain, event: "press release", datetime:"2018-07-24", title: "McCain Coming Back to Work", content: "Senator McCain looks forward to returning to the United States Senate tomorrow to continue working on important legislation, including health care reform, the National Defense Authorization Act, and new sanctions on Russia, Iran and North Korea.")
 
-disgracecomment1 = Annotation.create(statement: disgraceful, start: 41, end: 116, content: "A powerful statement in its simplicity")
-disgracecomment2 = Annotation.create(statement: disgraceful, start: 393, end: 448, content: "This could literally be true")
-disgracecomment3 = Annotation.create(statement: disgraceful, start: 251, end: 315, content: "Think of his entire team that is supporting this")
-disgracecomment4 = Annotation.create(statement: disgraceful, start: 419, end: 489, content: "A conscious choice? If he's not suffering from dementia")
+disgracecomment1 = Annotation.create(user: eckm, statement: disgraceful, start: 41, end: 116, content: "A powerful statement in its simplicity")
+disgracecomment2 = Annotation.create(user: eckm, statement: disgraceful, start: 393, end: 448, content: "This could literally be true")
+disgracecomment3 = Annotation.create(user: fel, statement: disgraceful, start: 251, end: 315, content: "Think of his entire team that is supporting this")
+disgracecomment4 = Annotation.create(user: jim, statement: disgraceful, start: 419, end: 489, content: "A conscious choice? If he's not suffering from dementia")
 
-nochoicecomment1 = Annotation.create(statement: nochoice, start: 10, end: 30, content: "This is an annotation")
-nochoicecomment2 = Annotation.create(statement: nochoice, start: 100, end: 150, content: "Another annotation")
-nochoicecomment3 = Annotation.create(statement: nochoice, start: 125, end: 175, content: "Something something")
-nochoicecomment4 = Annotation.create(statement: nochoice, start: 550, end: 600, content: "yep")
+nochoicecomment1 = Annotation.create(user: jim, statement: nochoice, start: 10, end: 30, content: "This is an annotation")
+nochoicecomment2 = Annotation.create(user: jim, statement: nochoice, start: 100, end: 150, content: "Another annotation")
+nochoicecomment3 = Annotation.create(user: fel, statement: nochoice, start: 125, end: 175, content: "Something something")
+nochoicecomment4 = Annotation.create(user: eckm, statement: nochoice, start: 550, end: 600, content: "yep")
 
 treasontag = Tag.create(tag_type: "treason")
 facttag = Tag.create(tag_type: "fact_check")
 inspiretag = Tag.create(tag_type: "inspire")
+dogwhistletag = Tag.create(tag_type: "dog_whistle")
+unsattrtag = Tag.create(tag_type: "unsupported_attribution")
+logfaltag = Tag.create(tag_type: "logical_fallacy")
 
-disgracecomment2.tags << treasontag
+disgracecomment1.tags << treasontag
+disgracecomment1.tags << facttag
+disgracecomment1.tags << dogwhistletag
+disgracecomment2.tags << facttag
+disgracecomment3.tags << treasontag
+disgracecomment3.tags << logfaltag
+disgracecomment4.tags << unsattrtag
+disgracecomment4.tags << treasontag
+disgracecomment4.tags << facttag
+
