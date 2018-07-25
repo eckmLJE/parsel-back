@@ -1,7 +1,7 @@
 class Api::V1::AnnotationsController < ApplicationController
 
     def index
-        render json: Annotation.all
+        render json: Annotation.all.includes(:tags), include: ['tags']
     end
 
     def create

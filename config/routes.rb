@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :annotations
       resources :statements
       resources :politicians
+      resources :tags
     end
   end
 end
