@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   namespace :api do
     namespace :v1 do
       resources :annotations
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
       resources :tags
       resources :users
       resources :tags
+      resources :comments
     end
   end
 end

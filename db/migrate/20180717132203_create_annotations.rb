@@ -6,6 +6,7 @@ class CreateAnnotations < ActiveRecord::Migration[5.2]
       t.text :content
       t.integer :start
       t.integer :end
+      t.integer :points
 
       t.timestamps
     end
