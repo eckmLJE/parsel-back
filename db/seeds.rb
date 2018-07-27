@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-eckm = User.create(username: Faker::PrincessBride.character, password: "eckm", points: 501)
-fel = User.create(username: Faker::PrincessBride.character, password: "fel", points: 111)
-jim = User.create(username: Faker::PrincessBride.character, password: "jim", points: 49)
-tom = User.create(username: Faker::PrincessBride.character, password: "tom", points: 19)
+eckm = User.create(username: Faker::PrincessBride.character, password: "eckm", points: 501, avatar: "man-1.svg")
+fel = User.create(username: Faker::PrincessBride.character, password: "fel", points: 111, avatar: "man-2.svg")
+jim = User.create(username: Faker::PrincessBride.character, password: "jim", points: 49, avatar: "man-3.svg")
+tom = User.create(username: Faker::PrincessBride.character, password: "tom", points: 19, avatar: "man-4.svg")
 
 
 mccain = Politician.create(party: "GOP", name: "John McCain")
@@ -30,10 +30,13 @@ nochoiceannotation2 = Annotation.create(user: jim, statement: nochoice, start: 1
 nochoiceannotation3 = Annotation.create(user: fel, statement: nochoice, start: 125, end: 175, points: 55, content: "Something something")
 nochoiceannotation4 = Annotation.create(user: eckm, statement: nochoice, start: 550, end: 600, points: 2, content: "yep")
 
-treasontag = Tag.create(tag_type: "treason")
-facttag = Tag.create(tag_type: "fact_check")
-inspiretag = Tag.create(tag_type: "inspire")
-dogwhistletag = Tag.create(tag_type: "dog_whistle")
+# treasontag = Tag.create(tag_type: "treason")
+fact_check = Tag.create(tag_type: "fact_check")
+inspire = Tag.create(tag_type: "inspire")
+snake = Tag.create(tag_type: "snake")
+undeniable = Tag.create(tag_type: "undeniable")
+
+
 unsattrtag = Tag.create(tag_type: "unsupported_attribution")
 logfaltag = Tag.create(tag_type: "logical_fallacy")
 
@@ -48,13 +51,23 @@ comment8 = Comment.create(user: eckm, annotation: nochoiceannotation1, points: 2
 comment9 = Comment.create(user: eckm, annotation: nochoiceannotation2, points: 3, content: Faker::PrincessBride.quote)
 comment10 = Comment.create(user: eckm, annotation: nochoiceannotation3, points: 40, content: Faker::PrincessBride.quote)
 
-disgraceannotation1.tags << treasontag
-disgraceannotation1.tags << facttag
-disgraceannotation1.tags << dogwhistletag
-disgraceannotation2.tags << facttag
-disgraceannotation3.tags << treasontag
-disgraceannotation3.tags << logfaltag
-disgraceannotation4.tags << unsattrtag
-disgraceannotation4.tags << treasontag
-disgraceannotation4.tags << facttag
+disgraceannotation1.tags << undeniable
+disgraceannotation1.tags << fact_check
+disgraceannotation1.tags << inspire
+disgraceannotation2.tags << fact_check
+disgraceannotation3.tags << inspire
+disgraceannotation3.tags << snake
+disgraceannotation4.tags << fact_check
+disgraceannotation4.tags << undeniable
+disgraceannotation4.tags << inspire
+
+nochoiceannotation1.tags << undeniable
+nochoiceannotation1.tags << undeniable
+nochoiceannotation1.tags << inspire
+nochoiceannotation2.tags << undeniable
+nochoiceannotation3.tags << inspire
+nochoiceannotation3.tags << snake
+nochoiceannotation4.tags << fact_check
+nochoiceannotation4.tags << undeniable
+nochoiceannotation4.tags << inspire
 

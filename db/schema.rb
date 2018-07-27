@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2018_07_26_174841) do
     t.string "username"
     t.string "password_digest"
     t.integer "points"
+    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
