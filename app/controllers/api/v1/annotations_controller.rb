@@ -1,7 +1,8 @@
 class Api::V1::AnnotationsController < ApplicationController
 
     def index
-        render json: Annotation.includes(:tags), include: ['tags']
+        @annotations = Annotation.all.includes(:tags).includes(:comments)
+        render json: @annotations, each_serializer: AnnotationSerializer
     end
 
     def create
@@ -9,10 +10,15 @@ class Api::V1::AnnotationsController < ApplicationController
         render json: annotation
     end
 
+    def show
+        @annotation = Annotation.find(annotation_params['id'])
+        render json: @annotation, each_serializer: AnnotationSerializer
+    end
+
     private
 
     def annotation_params
-        params.require(:annotation).permit(:id, :content, :start, :end, :statement_id)
+        params.permit(:id, :content, :start, :end, :statement_id)
     end
 
 end
