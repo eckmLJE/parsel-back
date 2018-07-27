@@ -1,7 +1,8 @@
 class Api::V1::StatementsController < ApplicationController
 
     def index
-        render json: Statement.includes(:annotations), include: ['annotations']
+        @statements = Statement.all.includes(:annotations)
+        render json: @statements, each_serializer: StatementSerializer
     end
 
 end
