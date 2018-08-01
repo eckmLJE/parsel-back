@@ -18,7 +18,7 @@ class Api::V1::AnnotationsController < ApplicationController
     private
 
     def annotation_params
-        params.permit(:id, :content, :start, :end, :statement_id)
+        params.permit(:id, :content, :start, :end, :statement_id, :user_id, :points)
     end
 
 end

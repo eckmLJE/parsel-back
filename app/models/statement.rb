@@ -4,4 +4,5 @@ class Statement < ApplicationRecord
     has_many :annotations
     has_many :comments, through: :annotations
     has_many :tags, through: :annotations
+    has_many :users, through: :annotations
 end

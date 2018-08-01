@@ -23,7 +23,6 @@ users = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user0]
 mccain = Politician.create(party: "Republican", name: "John McCain")
 menendez = Politician.create(party: "Democrat", name: "Bob Menendez")
 barrasso = Politician.create(party: "Republican", name: "John Barrasso")
-buschon = Politician.create(party: "Republican", name: "Larry Bucshon")
 nadler = Politician.create(party: "Democrat", name: "Jerrold Nadler")
 klobuchar = Politician.create(party: "Democrat", name: "Amy Klobuchar")
 
